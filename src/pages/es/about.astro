@@ -47,10 +47,15 @@ import Layout from '../../layouts/Layout.astro';
         Cómo calculamos
       </div>
       <p class="mt-2 text-sm text-slate-700">
-        Usamos el promedio histórico del S&P 500 (7% anual) y lo capitalizamos por la cantidad
-        de años entre el lanzamiento del programa (2026) y el cumpleaños número 18 de su
-        hijo/a. Limitamos las aportaciones al máximo federal de $5,000 al año. Los números son
-        estimaciones, no garantías — los retornos reales pueden variar.
+        Ejecutamos una simulación Monte Carlo de 1,000 trayectorias sobre la distribución
+        histórica de rendimientos mensuales del S&P 500 (1985–2026), con 12 sorteos mensuales por
+        año compuestos multiplicativamente. La media histórica bruta se reduce por una tasa de
+        gastos del fondo del 0.10%/año (típica para un ETF indexado de bajo costo del S&P 500),
+        dando un rendimiento anualizado efectivo de ≈10.5%; la cifra mostrada es la mediana de
+        las 1,000 trayectorias. Las aportaciones se limitan al máximo federal de $5,000/año del
+        §530A, y la aportación piloto de $1,000 se añade cuando el año de nacimiento del/de la
+        niño/a es 2025–2028. En cualquier caso individual los rendimientos pueden ser
+        significativamente mayores o menores que la mediana — incluyendo pérdidas.
       </p>
     </div>
   </section>

@@ -38,7 +38,7 @@ export const DICT = {
       title: 'About this site',
     },
     disclaimer:
-      'This site is an independent educational resource, not affiliated with any government agency. Estimates use the historical S&P 500 average return (7%). Actual returns will vary. Not investment advice.',
+      'This site is an independent educational resource, not affiliated with any government agency, financial institution, or the U.S. Treasury. Projections run a 1,000-path Monte Carlo over the historical S&P 500 monthly return distribution (≈10.5% annualized after a 0.10%/yr fund expense, 1985–2026); the headline is the median outcome. Actual returns can be substantially higher or lower, including losses. Numbers are illustrative only and are not investment, tax, or legal advice. Consult a qualified professional before making financial decisions.',
   },
   es: {
     brand: 'Guía Trump Account',
@@ -74,7 +74,7 @@ export const DICT = {
       title: 'Acerca de este sitio',
     },
     disclaimer:
-      'Este sitio es un recurso educativo independiente, sin afiliación con ninguna agencia gubernamental. Las estimaciones usan el promedio histórico del S&P 500 (7%). Los retornos reales pueden variar. No es asesoramiento de inversión.',
+      'Este sitio es un recurso educativo independiente, sin afiliación con ninguna agencia gubernamental, institución financiera ni con el Tesoro de EE. UU. Las proyecciones ejecutan una simulación Monte Carlo de 1,000 trayectorias sobre la distribución histórica de rendimientos mensuales del S&P 500 (≈10.5% anualizado después de un gasto del fondo de 0.10%/año, 1985–2026); la cifra mostrada es el resultado mediano. Los rendimientos reales pueden ser significativamente mayores o menores, incluyendo pérdidas. Las cifras son solo ilustrativas y no constituyen asesoramiento de inversión, fiscal ni legal. Consulte a un profesional cualificado antes de tomar decisiones financieras.',
   },
 } as const;
 

@@ -47,10 +47,14 @@ import Layout from '../layouts/Layout.astro';
         How we calculate
       </div>
       <p class="mt-2 text-sm text-slate-700">
-        We use the historical S&P 500 average return (7% per year) and compound it for the number
-        of years between the program launch (2026) and your child's 18th birthday. We cap
-        contributions at the federal maximum of $5,000 per year. Numbers are estimates, not
-        guarantees — real returns will vary.
+        We run a 1,000-path Monte Carlo simulation over the historical S&P 500 monthly return
+        distribution (1985–2026), with 12 monthly draws per year compounded multiplicatively. The
+        gross historical mean is reduced by a 0.10%/yr fund expense ratio (typical for a low-cost
+        S&P 500 index ETF), giving an effective ≈10.5% annualized return; the headline is the
+        median across the 1,000 paths. Contributions are clamped at the federal $5,000/yr §530A
+        cap, and the $1,000 pilot seed is added when the child's birth year is 2025–2028. Returns
+        in any individual case can be substantially higher or lower than the median — including
+        losses.
       </p>
     </div>
   </section>
