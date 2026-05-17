@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Calculator } from '../components/Calculator';
+import { fetchMarketAssumptions } from '../lib/marketAssumptions';
+
+const market = await fetchMarketAssumptions();
+const annMean = (Math.pow(1 + market.monthlyMean, 12) - 1) * 100;
+const annVol = market.monthlyVol * Math.sqrt(12) * 100;
+console.log(
+  `[Astro build] S&P 500 monthly stats (${market.fromLiveFetch ? 'live Yahoo' : 'fallback'}, ${market.dataRangeConfig}): ` +
+    `mean=${annMean.toFixed(2)}% ann, vol=${annVol.toFixed(2)}% ann`,
+);
+---
+
+<Layout
+  title="Trump Account Calculator — free $1,000 for kids born 2025–2028"
+  description="In 30 seconds: see if your child qualifies for the free $1,000 and how much they could have at 18. No signup, no income limit."
+  locale="en"
+>
+  <section class="mx-auto w-full max-w-xl px-4 pb-2 pt-8">
+    <p class="text-sm font-semibold uppercase tracking-wider text-brand-green-dark">
+      The free $1,000 for your baby
+    </p>
+    <h1 class="mt-2 text-3xl font-black leading-tight text-slate-900 sm:text-4xl">
+      Does your child get the<br />
+      <span class="text-brand-green-dark">free $1,000</span>?
+    </h1>
+    <p class="mt-3 text-base text-slate-700">
+      The government is putting $1,000 into a savings account for every U.S. baby born 2025–2028.
+      <strong>No income limit.</strong> Find out in 30 seconds — no signup, no name, no SSN.
+    </p>
+  </section>
+
+  <Calculator
+    client:only="react"
+    monthlyMean={market.monthlyMean}
+    monthlyVol={market.monthlyVol}
+    dataRangeConfig={market.dataRangeConfig}
+  />
+
+  <section class="mx-auto w-full max-w-xl px-4 pb-6 pt-2">
+    <a
+      href="https://trumpaccounts.gov"
+      target="_blank"
+      rel="noopener"
+      class="block rounded-xl border-2 border-brand-green bg-white px-4 py-3 text-center font-semibold text-brand-green-dark hover:bg-brand-green hover:text-white"
+    >
+      How to open the account →
+    </a>
+    <p class="mt-3 text-center text-xs text-slate-500">
+      Accounts open <strong>July 4, 2026</strong> at trumpaccounts.gov.
+    </p>
+  </section>
+</Layout>

@@ -1,0 +1,63 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const faqs = [
+  {
+    q: '¿Qué es una Trump Account?',
+    a: 'Es una cuenta federal de ahorros para niños, creada por la One Big Beautiful Bill Act. Los bebés nacidos entre 2025 y 2028 reciben $1,000 del gobierno para empezar. El dinero se invierte en un fondo indexado de acciones de EE. UU. de bajo costo, y el niño puede usarlo a partir de los 18 años.',
+  },
+  {
+    q: '¿Quién califica para los $1,000 gratis?',
+    a: 'Cualquier niño ciudadano de EE. UU. nacido entre el 1 de enero de 2025 y el 31 de diciembre de 2028 — sin límite de ingresos, sin formularios extra más allá de abrir la cuenta.',
+  },
+  {
+    q: '¿Cómo abro una?',
+    a: 'Las cuentas abren el 4 de julio de 2026 en trumpaccounts.gov. Necesitará el nombre y el número de Seguro Social de su hijo/a. El gobierno deposita los $1,000 automáticamente una vez creada la cuenta.',
+  },
+  {
+    q: '¿Cuándo puedo empezar a ahorrar?',
+    a: 'Las aportaciones comienzan el 4 de julio de 2026. Las familias pueden añadir hasta $5,000 al año; los empleadores pueden añadir hasta $2,500 de ese total. El dinero crece con impuestos diferidos dentro de la cuenta.',
+  },
+  {
+    q: '¿Qué pasa cuando mi hijo/a cumple 18 años?',
+    a: 'A los 18 años, la cuenta es suya. Puede retirar dinero para pagar universidad, capacitación vocacional, una primera casa o un pequeño negocio. Los retiros se gravan a su tasa personal (generalmente baja).',
+  },
+];
+---
+
+<Layout
+  title="Cómo funciona la Trump Account — 5 cosas que todo padre debe saber"
+  description="Explicación en lenguaje claro del programa federal Trump Account ($1,000 para niños nacidos en 2025–2028)."
+  locale="es"
+>
+  <section class="mx-auto w-full max-w-xl px-4 py-8">
+    <h1 class="text-3xl font-black text-slate-900">Cómo funciona</h1>
+    <p class="mt-2 text-slate-700">
+      Cinco preguntas que todo padre se hace. Respuestas claras, sin jerga.
+    </p>
+
+    <ol class="mt-8 space-y-6">
+      {faqs.map((faq, i) => (
+        <li class="rounded-2xl border-2 border-slate-100 bg-white p-5 shadow-sm">
+          <div class="text-xs font-semibold uppercase tracking-wider text-brand-green-dark">
+            P{i + 1}
+          </div>
+          <h2 class="mt-1 text-lg font-bold text-slate-900">{faq.q}</h2>
+          <p class="mt-2 text-base text-slate-700">{faq.a}</p>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-8 rounded-2xl bg-brand-green p-6 text-white">
+      <div class="text-sm font-semibold uppercase tracking-wider opacity-90">
+        ¿Listo para ver su número?
+      </div>
+      <a
+        href="/es/"
+        class="mt-2 block text-2xl font-black underline-offset-4 hover:underline"
+      >
+        Calcule en 30 segundos →
+      </a>
+    </div>
+  </section>
+</Layout>

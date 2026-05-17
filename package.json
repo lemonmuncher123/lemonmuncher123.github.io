@@ -1,0 +1,39 @@
+{
+  "name": "trump-account-v2",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Trump Account v2 — simplified 3-step calculator for low-income families",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "pdfs": "node scripts/generate-pdfs.mjs",
+    "test": "vitest",
+    "test:run": "vitest run"
+  },
+  "dependencies": {
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/tailwind": "^5.1.2",
+    "astro": "^4.16.10",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.14",
+    "yahoo-finance2": "^3.14.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/pdfkit": "^0.17.6",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "jsdom": "^25.0.1",
+    "pdfkit": "^0.18.0",
+    "qrcode": "^1.5.4",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  }
+}

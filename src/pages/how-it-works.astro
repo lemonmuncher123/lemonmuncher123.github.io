@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  {
+    q: 'What is a Trump Account?',
+    a: 'A federal savings account for kids, created by the One Big Beautiful Bill Act. Babies born 2025–2028 get $1,000 from the government to start. Money is invested in a low-cost U.S. stock index fund and the child can use it after they turn 18.',
+  },
+  {
+    q: 'Who qualifies for the free $1,000?',
+    a: 'Any U.S. citizen child born between January 1, 2025 and December 31, 2028 — no income limit, no application form to fill out beyond opening the account.',
+  },
+  {
+    q: 'How do I open one?',
+    a: 'Accounts open on July 4, 2026 at trumpaccounts.gov. You will need your child\'s name and Social Security number. The government deposits the $1,000 automatically once the account exists.',
+  },
+  {
+    q: 'When can I start saving?',
+    a: 'Contributions start on July 4, 2026. Families can add up to $5,000 per year; employers can add up to $2,500 of that. Money grows tax-deferred inside the account.',
+  },
+  {
+    q: 'What happens when my child turns 18?',
+    a: 'At age 18 the account is theirs. They can withdraw to pay for college, vocational training, a first home, or a small business. Withdrawals are taxed at their (usually low) personal income-tax rate.',
+  },
+];
+---
+
+<Layout
+  title="How the Trump Account works — 5 things every parent should know"
+  description="A plain-language explanation of the federal Trump Account ($1,000 for kids born 2025–2028)."
+  locale="en"
+>
+  <section class="mx-auto w-full max-w-xl px-4 py-8">
+    <h1 class="text-3xl font-black text-slate-900">How it works</h1>
+    <p class="mt-2 text-slate-700">
+      Five questions every parent asks. Plain answers, no jargon.
+    </p>
+
+    <ol class="mt-8 space-y-6">
+      {faqs.map((faq, i) => (
+        <li class="rounded-2xl border-2 border-slate-100 bg-white p-5 shadow-sm">
+          <div class="text-xs font-semibold uppercase tracking-wider text-brand-green-dark">
+            Q{i + 1}
+          </div>
+          <h2 class="mt-1 text-lg font-bold text-slate-900">{faq.q}</h2>
+          <p class="mt-2 text-base text-slate-700">{faq.a}</p>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-8 rounded-2xl bg-brand-green p-6 text-white">
+      <div class="text-sm font-semibold uppercase tracking-wider opacity-90">
+        Ready to see your number?
+      </div>
+      <a
+        href="/"
+        class="mt-2 block text-2xl font-black underline-offset-4 hover:underline"
+      >
+        Calculate in 30 seconds →
+      </a>
+    </div>
+  </section>
+</Layout>

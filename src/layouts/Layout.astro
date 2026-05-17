@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  locale?: 'en' | 'es';
+}
+
+const { title, description = '', locale = 'en' } = Astro.props;
+const altLocale = locale === 'en' ? 'es' : 'en';
+const path = Astro.url.pathname;
+const stripped = path.replace(/^\/es(?=\/|$)/, '').replace(/^\/+/, '/');
+const altHref = altLocale === 'es' ? `/es${stripped === '/' ? '/' : stripped}` : stripped;
+
+const t = locale === 'es' ? {
+  brand: 'Guía Trump Account',
+  nav: { how: 'Cómo funciona', about: 'Acerca de', counselors: 'Para consejeros' },
+  altLabel: 'EN',
+  disclaimer: 'Este sitio es un recurso educativo independiente, sin afiliación con ninguna agencia gubernamental. Las estimaciones usan el promedio histórico del S&P 500 (7%). Los retornos reales pueden variar. No es asesoramiento de inversión.',
+} : {
+  brand: 'Trump Account Guide',
+  nav: { how: 'How it works', about: 'About', counselors: 'For counselors' },
+  altLabel: 'ES',
+  disclaimer: 'This site is an independent educational resource, not affiliated with any government agency. Estimates use the historical S&P 500 average return (7%). Actual returns will vary. Not investment advice.',
+};
+
+const home = locale === 'es' ? '/es/' : '/';
+const howHref = locale === 'es' ? '/es/how-it-works' : '/how-it-works';
+const aboutHref = locale === 'es' ? '/es/about' : '/about';
+const counselorHref = locale === 'es' ? '/es/for-counselors' : '/for-counselors';
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-gradient-to-b from-yellow-50 to-white">
+    <header class="border-b border-slate-200 bg-white/90 backdrop-blur">
+      <nav class="mx-auto flex w-full max-w-xl items-center justify-between px-4 py-3">
+        <a href={home} class="text-base font-bold text-brand-green-dark">{t.brand}</a>
+        <div class="flex items-center gap-3 text-sm text-slate-600">
+          <a href={howHref} class="hover:text-brand-green-dark">{t.nav.how}</a>
+          <span class="text-slate-300">|</span>
+          <a href={altHref} class="font-semibold hover:text-brand-green-dark">{t.altLabel}</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="mt-12 border-t border-slate-200 bg-slate-50 py-6">
+      <div class="mx-auto w-full max-w-xl space-y-2 px-4 text-xs text-slate-500">
+        <p>{t.disclaimer}</p>
+        <p>
+          <a href={aboutHref} class="underline">{t.nav.about}</a>
+          ·
+          <a href={howHref} class="underline">{t.nav.how}</a>
+          ·
+          <a href={counselorHref} class="underline">{t.nav.counselors}</a>
+          ·
+          <a href={altHref} class="underline">{t.altLabel === 'ES' ? 'Español' : 'English'}</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
